@@ -1,0 +1,79 @@
+
+import React, {Component} from 'react';
+// import {Platform, StyleSheet, Text, View} from 'react-native';
+import LoginForm from './app/component/LoginForm';
+import { createStackNavigator , createDrawerNavigator } from 'react-navigation';
+import  HomeScreen  from './app/screens/HomeScreen';
+import  HomeContent  from './app/screens/HomeContent';
+import Applicant from './app/screens/Applicant';
+import ExitClearance from './app/screens/Exit';
+import Notice from './app/screens/Notice';
+import PropertyEndorsement from './app/screens/Property';
+import Feedback from './app/screens/Feedback';
+import Recruitment from './app/screens/Recruitment';
+import Personnel from './app/screens/Personnel';
+import Services from './app/screens/Services';
+
+type Props = {};
+ export default class App extends Component<Props> {
+  render() {
+    return (
+      <MyRouter />
+    );
+  }
+}
+
+ 
+ const MyRouter = createStackNavigator({
+  Login: { screen: LoginForm },
+  Home: { screen: HomeScreen },
+  Menu: {screen: SideBar}
+       } , 
+  { initialRouteName: 'Home', }
+);
+
+
+const CustomSidebar = (props) => (
+  <Container>
+      <Header style = {{height: 150 , backgroundColor: 'rgb(25, 30, 36)' }}>
+        <Body style = {{ justifyContent: 'center' , alignItems: 'center'}}>
+          <Image
+           style = {{height: 130 , width: 150 ,   borderRadius: 25}}
+           source = {require('./images/aurora.jpg')} />
+        </Body>
+      </Header>
+      <Content>
+        <DrawerItems {...props}/>
+      </Content>
+  </Container>
+)
+
+const SideBar =  createDrawerNavigator({
+  Home: { screen:   HomeContent , } ,
+  Recruitment: { screen:   Recruitment , },
+  Personnel: { screen:   Personnel , },
+  Services: { screen:   Services , } ,
+  Applicant: {screen: Applicant } ,
+  ExitClearance: {screen: ExitClearance } ,
+  Notice: {screen: Notice } ,
+  PropertyEndorsement: {screen: PropertyEndorsement } ,
+  Feedback: {screen: Feedback } ,
+  MyApp: {screen: App } 
+
+  }
+,
+  {
+    initialRouteName: 'Home' ,
+    order: ['Home' , 'Recruitment' , 'Personnel' , 'Services' , 'Applicant' , 'ExitClearance' , 'Notice' , 'PropertyEndorsement' , 'Feedback' ] ,
+    drawerPosition: 'left' , 
+    contentComponent: CustomSidebar ,
+    drawerOpenRoute: 'OpenDrawer',
+    drawerCloseRoute: 'DrawerClose',
+    drawerToggleRoute: 'DrawerToggle' ,
+    tabBarOptions: {
+      activeTintColor: 'blue' ,
+      inactiveTintColor: 'grey'
+    }
+  }
+);
+
