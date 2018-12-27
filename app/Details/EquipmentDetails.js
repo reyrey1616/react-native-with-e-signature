@@ -24,9 +24,9 @@ import SignatureCapture from "react-native-signature-capture";
 import { Grid, Col, Row } from "react-native-easy-grid";
 import HeaderBack from '../component/HeaderBack'
 
-class KeyDetails extends Component {
+class EquipmentDetails extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: "Key Accountability Details",
+    title: "Equipment Accountability Details",
     headerLeft: (
       <Icon
         name="ios-menu"
@@ -67,14 +67,14 @@ class KeyDetails extends Component {
   }
 
   componentDidMount(){
-    fetch(`http://192.168.1.61/Aurorapp/key_details.php?id=${this.state.id}`)
+    fetch(`http://192.168.1.61/Aurorapp/equipment_details.php?id=${this.state.id}`)
     .then(res => res.json())                     
     .then(response => {
        
       this.setState({ dataSource: response.data ,
          isLoading: false ,
-         conformeSign: response.data.confirm_by_sign , 
-         issuerSign: response.data.issued_by_sign
+         conformeSign: response.data.conforme_sign , 
+         issuerSign: response.data.issued_sign
         });
       console.log(response.data)
 
@@ -84,7 +84,7 @@ class KeyDetails extends Component {
 
   saveData(stat) {
 
-    fetch('http://192.168.1.61/Aurorapp/saveKeyAccountabilityDetails.php' ,{
+    fetch('http://192.168.1.61/Aurorapp/save_equipment.php' ,{
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -120,7 +120,7 @@ class KeyDetails extends Component {
        });
      }
  
-     setTimeout(() => this.props.navigation.navigate('KeyAccountability') , 2500);
+     setTimeout(() => this.props.navigation.navigate('EquipmentAccountability') , 2500);
       }).catch(err => console.log(JSON.stringify(err)))
 
 
@@ -135,32 +135,16 @@ class KeyDetails extends Component {
     if (this.state.isLoading == true) {
       return (
         <Container>
-          <HeaderBack backTo = "KeyAccountability" headTitle = "Key Accountability Details"/>
+          <HeaderBack backTo = "EquipmentAccountability" headTitle = "Equipment Accountability Details"/>
           <Spinner color="blue" />
         </Container>
       );
-    } else {
 
-      let keyDetails = this.state.dataSource.keys.map((val , key ) => {
-          return <List key = {key}> 
-            <ListItem itemDivider> 
-              <Text> {"Key "}{key + 1}</Text>
-            </ListItem>
-            <ListItem>
-              <Text> Key Type: {val.key_type}</Text>
-            </ListItem>
-            <ListItem>
-              <Text> Bldg: {val.building_name}</Text>
-            </ListItem>
-            <ListItem>
-              <Text> Room: {val.room_name}</Text>
-            </ListItem>
-          </List>
-      })
+    } else {
 
       return (
        <Container>
-        <HeaderBack backTo = "KeyAccountability" headTitle = "Key Accountability Details"/>
+         <HeaderBack backTo = "EquipmentAccountability" headTitle = "Equipment Accountability Details"/>
         <Content>
         <List>
 
@@ -180,7 +164,6 @@ class KeyDetails extends Component {
           </Text>
         </ListItem>
 
-        
         <ListItem>
           <Text>
              {" "}
@@ -188,19 +171,49 @@ class KeyDetails extends Component {
             <Text style={{ color: "#888" }}> {this.state.dataSource.confirm_by.job } </Text>{" "}
           </Text>
         </ListItem>
-
-        
-        <ListItem itemDivider>
-           <Text> Other Details </Text>
-         </ListItem>
-
-           
-        <ListItem>
-          <View>
-              {keyDetails}
-          </View>
+        <ListItem itemDivider> 
+          <Text> Equipment Details </Text>
         </ListItem>
 
+        <ListItem>
+          <Text>
+             {" "}
+              Equipment:{" "}
+            <Text style={{ color: "#888" }}> {this.state.dataSource.equipment } </Text>{" "}
+          </Text>
+        </ListItem>
+
+        <ListItem>
+          <Text>
+             {" "}
+              Model:{" "}
+            <Text style={{ color: "#888" }}> {this.state.dataSource.model } </Text>{" "}
+          </Text>
+        </ListItem>
+
+        <ListItem>
+          <Text>
+             {" "}
+              Date Purchased:{" "}
+            <Text style={{ color: "#888" }}> {this.state.dataSource.date_purchased } </Text>{" "}
+          </Text>
+        </ListItem>
+
+        <ListItem>
+          <Text>
+             {" "}
+              Purchased Price:{" "}
+            <Text style={{ color: "#888" }}> {this.state.dataSource.purchased_price } </Text>{" "}
+          </Text>
+        </ListItem>
+
+        <ListItem>
+          <Text>
+             {" "}
+              Remarks:{" "}
+            <Text style={{ color: "#888" }}> {this.state.dataSource.remarks } </Text>{" "}
+          </Text>
+        </ListItem>
 
         <ListItem>
           <Text>
@@ -404,4 +417,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default KeyDetails;
+export default EquipmentDetails;

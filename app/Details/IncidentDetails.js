@@ -161,8 +161,6 @@ class IncidentDetails extends Component {
   }
 
 
-  
-
   render() {
     if (this.state.isLoading == true) {
       return (

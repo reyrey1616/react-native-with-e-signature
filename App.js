@@ -5,9 +5,9 @@ import {Root } from 'native-base';
 import LoginForm from './app/component/LoginForm';
 import { createStackNavigator , createDrawerNavigator , DrawerItems} from 'react-navigation';
 // import  HomeScreen  from './app/screens/HomeScreen';
-import  SideBar  from './app/component/DrawerNavigator';
+// import  SideBar  from './app/component/DrawerNavigator';
 import HomeScreen from './app/screens/HomeScreen';
-import  HeaderBack  from './app/component/HeaderBack';
+import  LogoutAccount  from './app/component/LogoutAccount';
 
 type Props = {};
  export default class App extends Component<Props> {
@@ -22,7 +22,8 @@ type Props = {};
   constructor(props){
     super(props)
     this.state = {
-      username: 'rey'
+      username: 'rey' , 
+      isLoggedIn: 0
     }
   }
 
@@ -42,8 +43,8 @@ type Props = {};
  
  const MyRouter = createStackNavigator({
   Login: { screen: LoginForm },
-  Home: { screen: HomeScreen } 
-
+  Home: { screen: HomeScreen } ,
+  LogoutAccount: { screen: LogoutAccount }
        } , 
   { initialRouteName: 'Home', }
 );

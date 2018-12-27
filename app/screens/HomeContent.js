@@ -85,48 +85,77 @@ class HomeContent extends Component {
 
   
       let LightOffenses  = this.state.Light.map((val , key) => {
-        return <Offense myKey = {key} key = {key} name = {val.name} description = {val.description} />
+
+        if(val.description == "") {
+        return <Offense key = {key} name = {val.name} description = "No Content" textColor = "rgb(130 , 130 , 130)" />
+        }
+        else {
+        return <Offense key = {key} name = {val.name} description = {val.description} textColor = "rgb(30 , 30 , 30)" />          
+        }
+
+
       });
 
       let ModerateOffenses  = this.state.Moderate.map((val , key) => {
-        return <Offense myKey = {key} key = {key} name = {val.name} description = {val.description} />
+        if(val.description == "") {
+          return <Offense key = {key} name = {val.name} description = "No Content" textColor = "rgb(130 , 130 , 130)" />
+          }
+          else {
+          return <Offense key = {key} name = {val.name} description = {val.description} textColor = "rgb(30 , 30 , 30)" />          
+          }
       });
    
 
       let HighOffenses  = this.state.High.map((val , key) => {
-        return <Offense myKey = {key} key = {key} name = {val.name} description = {val.description} />
+        if(val.description == "") {
+          return <Offense key = {key} name = {val.name} description = "No Content" textColor = "rgb(130 , 130 , 130)" />
+          }
+          else {
+          return <Offense key = {key} name = {val.name} description = {val.description} textColor = "rgb(30 , 30 , 30)" />          
+          }
+        
       });
    
 
       let ExtremeOffenses  = this.state.Extreme.map((val , key) => {
-        return <Offense  myKey = {key} key = {key} name = {val.name} description = {val.description} />
+        if(val.description == "") {
+          return <Offense key = {key} name = {val.name} description = "No Content" textColor = "rgb(130 , 130 , 130)" />
+          }
+          else {
+          return <Offense key = {key} name = {val.name} description = {val.description} textColor = "rgb(30 , 30 , 30)" />          
+          }
       });
    
 
       let GraveOffenses  = this.state.Grave.map((val , key) => {
-        return <Offense myKey = {key} key = {key} name = {val.name} description = {val.description} />
+        if(val.description == "") {
+          return <Offense key = {key} name = {val.name} description = "No Content" textColor = "rgb(130 , 130 , 130)" />
+          }
+          else {
+          return <Offense key = {key} name = {val.name} description = {val.description} textColor = "rgb(30 , 30 , 30)" />          
+          }
       });
    
    
 
       return (
-        <Container>
+        <Container style = {{backgroundColor: '#eaeaea'}}>
           <AppHeader title="Home" openDrawer={() => this.props.navigation.openDrawer()} />
         <Tabs tabBarPosition = "bottom" renderTabBar={()=> <ScrollableTab />} >
 
-          <Tab  heading={ <TabHeading ><Text style = {{color: 'white'}} > Light Offense </Text></TabHeading>}>
-            <Header>
+          <Tab style = {{backgroundColor: '#eaeaea'}} heading={ <TabHeading style = {{backgroundColor: 'rgb(127, 127, 127)' , borderColor: '#888'}}><Text style = {{color: '#f3f3f3'}} > Light Offense </Text></TabHeading>}>
+            {/* <Header style = {{backgroundColor: 'rgb(127, 127, 127)'}}>
                 <Left>
                   <Button transparent>
-                    <Icon name='ios-warning' />
+                    <Icon name='ios-warning' style = {{color: '#fafafa'}} />
                   </Button>
                  </Left>
                  <Body style = {{flex: 3}}>
-                  <Title style = {{fontSize: 14}}>Kinds of Light Offenses </Title>
+                  <Title style = {{fontSize: 18 , color: '#fafafa' , fontWeight: 'bold'}}>Kinds of Light Offenses </Title>
                   </Body>
                 <Right>
                 </Right>
-            </Header>
+            </Header> */}
             <Content>
             
             {LightOffenses}
@@ -134,8 +163,8 @@ class HomeContent extends Component {
              
           </Tab>
 
-          <Tab  heading={ <TabHeading ><Text style = {{color: 'white'}} > Moderate Offense </Text></TabHeading>}>
-             <Header>
+          <Tab style = {{backgroundColor: '#eaeaea'}}   heading={ <TabHeading style = {{backgroundColor: 'rgb(127, 127, 127)' , borderColor: '#888'}} ><Text style = {{color: '#f3f3f3'}} > Moderate Offense </Text></TabHeading>}>
+             {/* <Header>
                 <Left>
                   <Button transparent>
                     <Icon name='ios-warning' />
@@ -146,7 +175,7 @@ class HomeContent extends Component {
                   </Body>
                 <Right>
                 </Right>
-            </Header>
+            </Header> */}
           <Content>
             {ModerateOffenses}
           </Content>
@@ -154,8 +183,8 @@ class HomeContent extends Component {
 
 
 
-          <Tab  heading={ <TabHeading ><Text style = {{color: 'white'}} > High Offense </Text></TabHeading>}>
-           <Header>
+          <Tab style = {{backgroundColor: '#eaeaea'}}  heading={ <TabHeading style = {{backgroundColor: 'rgb(127, 127, 127)' , borderColor: '#888'}} ><Text style = {{color: '#f3f3f3'}} > High Offense </Text></TabHeading>}>
+           {/* <Header>
                 <Left>
                   <Button transparent>
                     <Icon name='ios-warning' />
@@ -166,15 +195,15 @@ class HomeContent extends Component {
                   </Body>
                 <Right>
                 </Right>
-            </Header>
+            </Header> */}
           <Content>
             {HighOffenses}
           </Content>
 
           </Tab>
 
-          <Tab  heading={ <TabHeading ><Text style = {{color: 'white'}} > Extreme Offense </Text></TabHeading>}>
-            <Header>
+          <Tab style = {{backgroundColor: '#eaeaea'}}  heading={ <TabHeading style = {{backgroundColor: 'rgb(127, 127, 127)' , borderColor: '#888'}} ><Text style = {{color: '#f3f3f3'}} > Extreme Offense </Text></TabHeading>}>
+            {/* <Header>
                 <Left>
                   <Button transparent>
                     <Icon name='ios-warning' />
@@ -185,15 +214,15 @@ class HomeContent extends Component {
                   </Body>
                 <Right>
                 </Right>
-            </Header>
+            </Header> */}
             <Content>
               {ExtremeOffenses}
             </Content>
 
           </Tab>
 
-          <Tab  heading={ <TabHeading ><Text style = {{color: 'white'}} > Grave Offense </Text></TabHeading>}>
-            <Header>
+          <Tab style = {{backgroundColor: '#eaeaea'}} heading={ <TabHeading style = {{backgroundColor: 'rgb(127, 127, 127)' , borderColor: '#888'}} ><Text style = {{color: '#f3f3f3'}} > Grave Offense </Text></TabHeading>}>
+            {/* <Header>
                 <Left>
                   <Button transparent>
                     <Icon name='ios-warning' />
@@ -204,7 +233,7 @@ class HomeContent extends Component {
                   </Body>
                 <Right>
                 </Right>
-            </Header>
+            </Header> */}
             <Content>
               {GraveOffenses}
             </Content>

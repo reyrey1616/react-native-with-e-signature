@@ -28,8 +28,8 @@ class Personnel extends Component {
         
         
     <Grid style = {{padding: 20}}>
-       <Row size = {1}>
-       <Col style = {{padding: 8 , height: 120}}>
+    <Row size = {1} style = {{padding: 10}}>
+       <Col style = {{padding: 20 , height: 120}}>
         <Card>
             <CardItem style = {{alignItems: 'center' , justifyContent: 'center'}}  button onPress = {() => this.props.navigation.navigate('Feedback') }>
               <Icon name = "ios-chatbubbles" style = {{fontSize: 35 , color: 'rgb(0 , 80 , 180)'}} />
@@ -44,8 +44,11 @@ class Personnel extends Component {
        
           </Card>
         </Col>
+        </Row>
 
-        <Col style = {{padding: 8}}>
+        <Row size = {1} style = {{padding: 10}}>
+
+        <Col style = {{padding: 20}}>
         <Card>
             <CardItem style = {{alignItems: 'center' , justifyContent: 'center'}}  button onPress = {() => this.props.navigation.navigate('IncidentReport') }>
               <Icon name = "ios-document" style = {{fontSize: 35 , color: 'rgb(0 , 80 , 180)'}} />
@@ -62,8 +65,8 @@ class Personnel extends Component {
         </Col>
        </Row>
 
-      <Row size = {1}>
-       <Col style = {{padding: 8}}>
+      <Row size = {1} style = {{padding: 10}}>
+       <Col style = {{padding: 20}}>
         <Card>
             <CardItem style = {{alignItems: 'center' , justifyContent: 'center'}}  button onPress = {() => this.props.navigation.navigate('Notice') }>
               <Icon name = "ios-git-network" style = {{fontSize: 35 , color: 'rgb(0 , 80 , 180)'}} />
@@ -72,22 +75,6 @@ class Personnel extends Component {
               <Body>
                 <Text style = {{fontSize: 16}}>
                  Notice to Decision
-                </Text>
-              </Body>
-            </CardItem>
-       
-          </Card>
-        </Col>
-
-        <Col style = {{padding: 8}}>
-        <Card>
-            <CardItem style = {{alignItems: 'center' , justifyContent: 'center'}}  button onPress = {() => this.props.navigation.navigate('PropertyEndorsement') }>
-              <Icon name = "ios-attach" style = {{fontSize: 35 , color: 'rgb(0 , 80 , 180)'}} />
-            </CardItem>
-            <CardItem  button onPress = {() => this.props.navigation.navigate('PropertyEndorsement') }>
-              <Body>
-                <Text style = {{fontSize: 16}}>
-                  Property Endorsement
                 </Text>
               </Body>
             </CardItem>

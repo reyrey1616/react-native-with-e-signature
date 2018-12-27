@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {AppRegistry , Alert ,  Platform, StyleSheet, Text, View , Image , TextInput , KeyboardAvoidingView , Button , TouchableOpacity} from 'react-native';
 import {Container, Header, Content, Item, Input, Icon } from 'native-base';
+import Hidden from './Hidden'
 
 export default class LoginForm extends Component {
 
@@ -13,9 +14,20 @@ export default class LoginForm extends Component {
         };
     }
 
-    static navigationOptions = {
-      header: null
-    }
+    // static navigationOptions = {
+    //   header: null
+    // }
+
+    
+    static navigationOptions = ({ navigation }) => ({
+      drawerLockMode: 'locked-closed' ,
+      title: "Log-out",
+      headerLeft: <Icon name="ios-menu" style={{ paddingLeft: 10 }} onPress={() => navigation.navigate('DrawerOpen')} />,
+      drawerLabel: 'Log-out',
+      drawerIcon: ({ tintColor }) => (
+        <Icon name="ios-log-out" style={{ height: 24 , width: 24 }} onPress={() => navigation.navigate('DrawerOpen')} />
+      ),
+    })
 
   render() {
     return (
@@ -79,7 +91,7 @@ export default class LoginForm extends Component {
                             this.props.navigation.navigate('Home');
                         }
                         else if(resp == 0) {
-                          Alert.alert("Username or Password is Incorrect!");
+                          Alert.alert("No Mobile App Access!");
                         }
                   }).catch(err => Alert.alert(err));
 

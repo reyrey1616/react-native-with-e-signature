@@ -22,6 +22,11 @@ import EndorsementDetail from '../Details/EndorsementDetail';
 import KeyAccountability from '../screens/KeyAccountability';
 import KeyDetails from '../Details/KeyDetails';
 import EndorsementForms from '../screens/EndorsementForms';
+import EquipmentDetails from '../Details/EquipmentDetails';
+import EquipmentAccountability from '../screens/EquipmentAccountability';
+import LoginForm from './LoginForm';
+import LogoutAccount from './LogoutAccount';
+
 
 
 
@@ -39,8 +44,8 @@ const CustomSidebar = (props) => (
           <DrawerItems {...props}/>
         </Content>
     </Container>
-    
   )
+
   
  const SideBar =  new createDrawerNavigator({
     Home: { screen:   HomeContent , } ,
@@ -60,13 +65,17 @@ const CustomSidebar = (props) => (
     EndorsementDetail: {screen: EndorsementDetail} ,
     KeyDetails: {screen: KeyDetails} ,
     KeyAccountability: {screen: KeyAccountability} ,
-    EndorsementForms: {screen: EndorsementForms}
+    EndorsementForms: {screen: EndorsementForms} ,
+    EquipmentAccountability: {screen: EquipmentAccountability} ,
+    EquipmentDetails: {screen: EquipmentDetails} ,
+    LoginForm: {screen: LoginForm}  
+
 
     }
   , 
     {
-      initialRouteName: 'KeyAccountability' ,
-      order: ['Home' , 'Recruitment' , 'Personnel' , 'Services' , 'Applicant' , 'ExitClearance' , 'Notice' , 'PropertyEndorsement' , 'Feedback' , 'FeedbackDetails' , 'CardList' , 'IncidentReport' , 'IncidentDetails' , 'NoticeDetails' , 'EndorsementDetail' , 'KeyAccountability' , 'KeyDetails' , 'EndorsementForms'] ,
+      initialRouteName: 'Home' ,
+      order: ['Home' , 'Recruitment' , 'Personnel' , 'Services' , 'Applicant' , 'ExitClearance' , 'Notice' , 'PropertyEndorsement' , 'Feedback' , 'FeedbackDetails' , 'CardList' , 'IncidentReport' , 'IncidentDetails' , 'NoticeDetails' , 'EndorsementDetail' , 'KeyAccountability' , 'KeyDetails' , 'EndorsementForms' , 'EquipmentAccountability' , 'EquipmentDetails' , 'LoginForm'] ,
       drawerPosition: 'left' , 
       contentComponent: CustomSidebar ,
       drawerOpenRoute: 'OpenDrawer',

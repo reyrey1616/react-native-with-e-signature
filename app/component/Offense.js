@@ -15,13 +15,13 @@ class Offense extends Component {
 
   render() { 
        return(
-            <Card myKey = {this.props.key}>
+            <Card transparent>
             <CardItem header bordered>
-              <Text style = {{fontWeight: 'bold'}}> {this.props.name} </Text>
+              <Text style = {{fontWeight: 'bold' , color: 'rgb(56, 56, 149)'}}> {this.props.name} </Text>
             </CardItem>
             <CardItem bordered>
               <Body style = {{flex: 5}}>
-             <Text>
+             <Text style = {{color: this.props.textColor}}>
                {this.props.description}
              </Text>
               </Body>

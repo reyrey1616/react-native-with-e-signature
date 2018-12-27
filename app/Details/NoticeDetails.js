@@ -82,7 +82,12 @@ class NoticeDetails extends Component {
               {
                 dataSource: response.data ,
                 isLoading: false ,
-                remarks: response.data.supervisor_remarks
+                remarks: response.data.supervisor_remarks ,
+                hrSign: response.data.hr_sign ,
+                violatorSign: response.data.violator_sign ,
+                issuerSign: response.data.issuer_sign ,
+                supervisorSign: response.data.supervisor_sign 
+
               }
             )
             setTimeout(() => console.log(this.state.dataSource) , 1000);
@@ -299,7 +304,7 @@ class NoticeDetails extends Component {
                       borderColor: "red"
                     }}
                     source={{
-                      uri: `data:image/png;base64, ${this.state.dataSource.violatorSign}`
+                      uri: `data:image/png;base64, ${this.state.violatorSign}`
                     }}
                 />
               </ListItem>
@@ -321,7 +326,7 @@ class NoticeDetails extends Component {
                       borderColor: "red"
                     }}
                     source={{
-                      uri: `data:image/png;base64, ${this.state.dataSource.issuerSign}`
+                      uri: `data:image/png;base64, ${this.state.issuerSign}`
                     }}
                 />
               </ListItem>
@@ -342,7 +347,7 @@ class NoticeDetails extends Component {
                       borderColor: "red"
                     }}
                     source={{
-                      uri: `data:image/png;base64, ${this.state.dataSource.supervisorSign}`
+                      uri: `data:image/png;base64, ${this.state.supervisorSign}`
                     }}
                 />
               </ListItem>
@@ -363,7 +368,7 @@ class NoticeDetails extends Component {
                       borderColor: "red"
                     }}
                     source={{
-                      uri: `data:image/png;base64, ${this.state.dataSource.hrSign}`
+                      uri: `data:image/png;base64, ${this.state.hrSign}`
                     }}
                 />
               </ListItem>
@@ -476,16 +481,16 @@ class NoticeDetails extends Component {
     this.refs["sign"].resetImage();
 
     if(this.state.currentSigning == 'Violator') {
-      this.setState({  violatorSign: null});      
+      this.setState({  violatorSign: null , signOne: 1 });      
     }
-    else if(this.state.currentSigning == 'Issuer') {
-      this.setState({  issuerSign: null});      
+    else if(this.state.currentSigning == 'Issuer' ) {
+      this.setState({  issuerSign: null , signTwo: 1});      
     }
     else if(this.state.currentSigning == 'Supervisor') {
-      this.setState({ supervisorSign: null});      
+      this.setState({ supervisorSign: null , signThree: 1});      
     }
     else if(this.state.currentSigning == 'HR Officer') {
-      this.setState({ hrSign: null});      
+      this.setState({ hrSign: null , signFour: 1});      
     }
 
   }

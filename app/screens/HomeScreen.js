@@ -6,7 +6,7 @@ import  SideBar  from '../component/DrawerNavigator';
 export default class HomeScreen extends Component {
 
     static navigationOptions = {
-            header: null
+      header: null
     }
 
     constructor(props) {

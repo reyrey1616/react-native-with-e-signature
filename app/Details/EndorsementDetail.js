@@ -153,10 +153,6 @@ class EndorsementDetail extends Component {
          <Content>
          <List>
 
-
-         <ListItem itemDivider>
-           <Text> EMPLOYEE PERSONAL INFORMATION </Text>
-         </ListItem>
          <ListItem>
           <Text>
              {" "}
@@ -168,7 +164,7 @@ class EndorsementDetail extends Component {
         <ListItem>
           <Text>
              {" "}
-              Job Title By:{" "}
+              Job Title:{" "}
             <Text style={{ color: "#888" }}> {this.state.dataSource[0].surrendered_by.job} </Text>{" "}
           </Text>
         </ListItem>

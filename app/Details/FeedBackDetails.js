@@ -126,7 +126,7 @@ class FeedBackDetails extends Component {
           
 
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(JSON.stringify(err)));
   }
 
   saveAsDraft(saveType) {
@@ -196,9 +196,6 @@ class FeedBackDetails extends Component {
         return (
           <Content key={key}>
             <List>
-              <ListItem itemDivider>
-                <Text> EMPLOYEE PERSONAL INFORMATION </Text>
-              </ListItem>
               <ListItem>
                 <Text>
                   {" "}
@@ -304,7 +301,8 @@ class FeedBackDetails extends Component {
               </Form>
 
               <Button
-                bordered
+                block 
+                primary
                 style={{ padding: 7, margin: 5 , marginTop: 20 }}
                 onPress={() => {
                   this.setModalVisible(true);
@@ -313,8 +311,7 @@ class FeedBackDetails extends Component {
                   });
                 }}
               >
-                <Icon name="ios-add" />
-                <Text> Add Violator Signature {this.state.violatorDone} </Text>
+                <Text style = {{color: 'white'}}> Add Violator Signature {this.state.violatorDone} </Text>
               </Button>
               <Image
                 style={{
@@ -329,7 +326,8 @@ class FeedBackDetails extends Component {
               />
 
               <Button
-                bordered
+                block
+                primary
                 style={{ padding: 7, margin: 5 }}
                 onPress={() => {
                   this.setModalVisible(true);
@@ -338,8 +336,7 @@ class FeedBackDetails extends Component {
                   });
                 }}
               >
-                <Icon name="ios-add" />
-                <Text> Add Issuer Signature {this.state.issuerDone}</Text>
+                <Text style = {{color: 'white'}}> Add Issuer Signature {this.state.issuerDone}</Text>
               </Button>
               <Image
                 style={{
@@ -354,7 +351,8 @@ class FeedBackDetails extends Component {
               />
 
               <Button
-                bordered
+                block
+                prmary
                 style={{ padding: 7, margin: 5 }}
                 onPress={() => {
                   this.setModalVisible(true);
@@ -363,8 +361,7 @@ class FeedBackDetails extends Component {
                   });
                 }}
               >
-                <Icon name="ios-add" />
-                <Text>
+                <Text style = {{color: 'white'}}>
                   {" "}
                   Add Direct Supervisor Signature {
                     this.state.supervisorDone
@@ -384,7 +381,8 @@ class FeedBackDetails extends Component {
               />
 
               <Button
-                bordered
+                block
+                primary
                 style={{ padding: 7, margin: 5 }}
                 onPress={() => {
                   this.setModalVisible(true);
@@ -393,8 +391,7 @@ class FeedBackDetails extends Component {
                   });
                 }}
               >
-                <Icon name="ios-add" />
-                <Text> Add HR Manager Signature {this.state.hrDone} </Text>
+                <Text style = {{color: 'white'}}> Add HR Manager Signature {this.state.hrDone} </Text>
               </Button>
               <Image
                 style={{
