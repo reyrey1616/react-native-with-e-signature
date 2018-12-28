@@ -27,6 +27,11 @@ type Props = {};
     }
   }
 
+
+  componentDidMount(){
+    console.disableYellowBox  = true;
+  }
+
   static navigationOptions = {
     header: null
   }
@@ -46,7 +51,7 @@ type Props = {};
   Home: { screen: HomeScreen } ,
   LogoutAccount: { screen: LogoutAccount }
        } , 
-  { initialRouteName: 'Home', }
+  { initialRouteName: 'Login', }
 );
 
 

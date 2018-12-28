@@ -21,8 +21,9 @@ export default class LoginForm extends Component {
     
     static navigationOptions = ({ navigation }) => ({
       drawerLockMode: 'locked-closed' ,
-      title: "Log-out",
-      headerLeft: <Icon name="ios-menu" style={{ paddingLeft: 10 }} onPress={() => navigation.navigate('DrawerOpen')} />,
+      title: "",
+      headerLeft: <Hidden/> ,
+      header: null ,
       drawerLabel: 'Log-out',
       drawerIcon: ({ tintColor }) => (
         <Icon name="ios-log-out" style={{ height: 24 , width: 24 }} onPress={() => navigation.navigate('DrawerOpen')} />
